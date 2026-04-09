@@ -106,7 +106,7 @@ python my_doc_rag.py
 
 ### Module Reference — my_doc_rag.py
 
-### partition_document(file_path)
+# partition_document(file_path)
 
 - Extracts all elements from a PDF using Unstructured's hi_res strategy. Infers table structure and extracts image blocks as base64 payloads.
   
