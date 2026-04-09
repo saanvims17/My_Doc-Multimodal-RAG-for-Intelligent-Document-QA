@@ -65,10 +65,11 @@ pip install "unstructured[pdf]" langchain-core langchain-openai langchain-chroma
 
 --- 
 ###  System-level dependencies
-# macOS
+
+### macOS
 brew install poppler tesseract
 
-# Ubuntu / Debian
+### Ubuntu 
 apt-get install -y poppler-utils tesseract-ocr
 
 --- 
