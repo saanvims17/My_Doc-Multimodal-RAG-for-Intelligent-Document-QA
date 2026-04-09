@@ -8,46 +8,145 @@ PDF → Partition → Chunk → Summarize → Embed → Store → Retrieve → A
 <img width="1042" height="478" alt="Screenshot 2026-04-09 at 7 06 13 PM" src="https://github.com/user-attachments/assets/bae08c34-c296-4f5b-a0e6-839bb5848a74" />
 
 **Ingestion Pipeline** 
+
 <img width="595" height="494" alt="Screenshot 2026-04-09 at 7 15 50 AM" src="https://github.com/user-attachments/assets/aae0e928-0024-4e11-b9ef-94af70ca3f51" />
 
 PDF parsing using Unstructured.io
 
 **Extracts:**
-Text
 
-Tables (HTML structured)
+<img width="1246" height="472" alt="Screenshot 2026-04-09 at 7 36 49 PM" src="https://github.com/user-attachments/assets/f4186437-4212-440c-957e-df2ca6cbb3f4" />
 
-Images (base64)
 
-**Processing Pipeline**
-Chunking → Title-based semantic chunks
+### 1. PDF Partitioning
+- Uses **Unstructured.io**
+- Extracts:
+  - Text blocks
+  - Tables (structured HTML)
+  - Images (base64 encoded)
 
-Summarization → GPT-4o (for multimodal understanding)
+---
 
-Embedding → OpenAI text-embedding-3-small
+### 2. Intelligent Chunking
+- Title-based chunking strategy
+- Maintains semantic grouping
+- Configurable chunk size limits
 
-**Query Pipeline**
-Retrieve top-k relevant chunks (ChromaDB)
+---
 
-Generate grounded answers using GPT-4o
+### 3. Content Separation
+Each chunk is analyzed and split into:
+- Text
+- Tables
+- Images
 
-Evaluate using GPT-4o as a judge
+---
 
-**Key Features**
+### 4. AI-Enhanced Summarization
+- Applied only when tables/images exist
+- Uses **GPT-4o**
+- Produces searchable descriptions for better retrieval
 
-- Extracts structured content from PDFs (text, tables, images)
+---
+
+### 5. Vector Store (ChromaDB)
+- Embeddings: `text-embedding-3-small`
+- Stored in **Chroma vector database**
+
+---
+
+### 6. Retrieval
+- Top-k semantic retrieval
+- Uses LangChain retriever interface
+
+---
+
+### 7. Answer Generation
+- Uses **GPT-4o**
+- Receives:
+  - Raw text
+  - Tables (HTML)
+  - Images (base64)
+
+✔ Strict grounding:
+- Answers only from retrieved context  
+- Explicitly states if information is missing  
+
+---
+
+### 8. Evaluation (LLM-as-a-Judge)
+
+#### Retrieval Evaluation
+- Contains answer
+- Relevance score
+- Coverage score
+- Noise score
+
+#### Answer Evaluation
+- Faithfulness
+- Correctness
+- Completeness
+- Hallucination detection
+
+---
+
+**Tech Stack**
+
+- LangChain
   
-- Creates intelligent chunks using title-based segmentation
+- ChromaDB (Vector Store)
   
-- Enhances chunks using AI-powered summarization
+- OpenAI GPT-4o
+  
+- Unstructured.io (PDF parsing)
+  
+- Python
 
-- Reads Images and tables via summaries to prevent loss of information 
+**Installations** 
+
+pip install \
+
+unstructured[all-docs] \
+
+langchain \
+
+langchain-community \
+
+langchain-openai \
+
+langchain-chroma \
+
+python-dotenv 
+
+**system dependencies** 
+
+**1. Poppler (`poppler-utils`)**
+   
+- Enables PDF parsing and layout extraction
   
-- Generates embeddings and stores them in a vector database (ChromaDB)
+- Required for high-resolution document processing  
+
+**2. Tesseract (`tesseract-ocr`)**
+   
+- Performs OCR (Optical Character Recognition)
   
-- Retrieves the most relevant context for user queries
-  
-- Generates grounded answers using GPT-4o
-  
-- Evaluates answer quality using LLM-as-a-judge
+- Extracts text from scanned documents and images  
+
+**3. libmagic**
+   
+- Detects file types based on content
+   
+- Ensures correct parsing strategy  
+
+
+**for Mac**: brew install poppler tesseract libmagic
+
+**for Linux**: apt-get install poppler-utils tesseract-ocr libmagic-dev
+
+**RUN the notebook**
+
+python my_doc.ipynb 
+
+**Key Features** 
+
 
