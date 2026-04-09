@@ -3,6 +3,7 @@ Transform any PDF into a searchable, explainable AI-powered knowledge system.
 MyDOC is an end-to-end Multimodal Retrieval-Augmented Generation (RAG) pipeline that processes documents containing text, tables, and images, enabling accurate, grounded question answering. Powered by GPT-4o and ChromaDB, with full support for text, tables, and embedded images. 
 
 **Streamlit Output** 
+**Understands complex documents like a research paper**
 
 <img width="1420" height="785" alt="Screenshot 2026-04-09 at 11 45 01 PM" src="https://github.com/user-attachments/assets/e3a0193a-ed13-4cf0-855a-8789540f90e9" />
 
