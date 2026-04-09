@@ -33,13 +33,13 @@ PDF → Partition → Chunk → Summarize → Embed → Store → Retrieve → A
 ### Project Structure
 
 .
-    ├── mydoc_rag_pipeline.py      # Core RAG pipeline (partition → chunk → embed → retrieve → answer)
+├── mydoc_rag_pipeline.py      # Core RAG pipeline (partition → chunk → embed → retrieve → answer)
 
-    ├── app.py             # Streamlit chat interface
+├── app.py             # Streamlit chat interface
 
-    └── README.md
+└── README.md
 
-    └── .env 
+└── .env 
 
   --- 
   ### Requirements - 
@@ -170,7 +170,7 @@ Returns an answer string.
 
 Convenience wrapper that chains partition_document → create_chunks_by_title → summarise_chunks → create_vector_store and returns a ready-to-query vectorstore. Used by the terminal interface in __main__.
 
--- 
+---
 
 ### Known Limitations 
 
