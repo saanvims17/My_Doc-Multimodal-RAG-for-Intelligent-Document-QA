@@ -149,5 +149,12 @@ python-dotenv
 
 python my_doc.ipynb 
 
+**QUERY** 
+<img width="440" height="76" alt="Screenshot 2026-04-09 at 7 55 28 PM" src="https://github.com/user-attachments/assets/95717827-b7ac-4af7-b948-1425a985ee83" />
+
+**Answer** 
+<img width="853" height="624" alt="Screenshot 2026-04-09 at 7 55 59 PM" src="https://github.com/user-attachments/assets/dc6a6687-1039-4f95-a55e-9a082aed491d" />
+<img width="1140" height="145" alt="Screenshot 2026-04-09 at 7 56 32 PM" src="https://github.com/user-attachments/assets/2ff1fd4b-4d29-45fe-8759-6f588e02f08c" />
+
 
 
